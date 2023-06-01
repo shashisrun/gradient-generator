@@ -4,9 +4,14 @@ import PointType from "../types/PointType";
 
 class Gradient implements GradientInterface {
   points: PointType[];
+  activePoint: PointType;
 
-  constructor() {
-    this.points = [];
+  constructor(startingPoint: PointType, endPoint: PointType) {
+    this.points = [startingPoint, endPoint];
+    this.activePoint = startingPoint;
+  }
+  setCurrentPointer(point: PointType): void {
+    this.activePoint = point;
   }
   addPoint(point: PointType): void {
     this.points.push(point);
